@@ -1,0 +1,251 @@
+DRY-PERIOD STREAMFLOW METHOD IN PLAIN LANGUAGE
+================================================
+
+PURPOSE
+-------
+
+Rivers usually decline when detected precipitation and proxy snowmelt are
+absent, but the decline is not perfectly smooth. This study measured the daily
+departures around the expected decline, determined how their size changes with
+flow, tested how often unusually large departures occur, and carried those
+measurements into conditional low-flow prediction.
+
+The source inventory contained 9,067 CONUS gages. Quality control retained
+5,227 basins. The primary variance exponent was estimable for 3,727 basins from
+9,199,635 screened one-day transitions during 1980–2025.
+
+
+1. IDENTIFY CANDIDATE DRY-PERIOD TRANSITIONS
+---------------------------------------------
+
+Daily USGS discharge was matched with basin-average precipitation and
+temperature. Temperature was used to construct a proxy indicator of possible
+snowmelt. The proxy was a screen, not a reconstruction of snow water
+equivalent.
+
+For a transition beginning on day t and ending τ days later:
+
+    D(t,τ)
+      = 1{ maximum P(s) ≤ P₀ }
+        × 1{ Σ M(s) = 0 },
+
+    for s = t-a+1, ..., t+τ.
+
+P(s) is basin-average precipitation, P₀ = 0.1 mm/day, a = 3 days, and
+M(s) is the binary proxy-snowmelt-risk indicator. The window includes the
+three-day period ending on the starting day and continues through the future
+endpoint.
+
+A retained transition also required a continuous screened run of at least five
+days, consecutive dates, and positive flow at both endpoints. Missing forcing
+excluded the transition. The screen identifies periods with no detected
+precipitation or proxy snowmelt; it does not exclude every unmeasured input,
+regulation effect, or observation error. Both falling and rising changes were
+retained because keeping only declines would change the measured variance.
+
+
+2. PUT DIFFERENT RIVERS ON A COMPARABLE SCALE
+----------------------------------------------
+
+Discharge was converted to basin runoff depth:
+
+    Q_mm(i,t) = 2.446575545 × Q_cfs(i,t) / A(i),
+
+where A(i) is drainage area in square kilometers and Q_mm is in millimeters
+per day.
+
+Each basin was then divided by its own positive-flow median:
+
+    q(i,t)
+      = Q_mm(i,t)
+        / median{ Q_mm(i,s) : Q_mm(i,s) > 10⁻⁶ mm/day }.
+
+On this scale, q = 2 means that current flow is twice the basin's normalization
+median. The forward change was
+
+    Δq(i,t;τ) = q(i,t+τ) - q(i,t).
+
+A negative Δq is a decline; a positive Δq is an increase.
+
+
+3. ESTIMATE THE EXPECTED CHANGE AND ITS VARIANCE
+-------------------------------------------------
+
+Within each basin, transitions were placed into equal-frequency starting-flow
+bins. The primary one-day calculation used 20 bins, required at least 50
+transitions in a retained bin, and required at least six valid bins for a
+basin-level fit.
+
+For a flow bin centered on q, the conditional mean-change rate was
+
+    μΔ(q,τ)
+      = E[ Δq(τ) | q(t)=q, D(t,τ)=1 ] / τ.
+
+The conditional increment variance was
+
+    S²(q,τ)
+      = Var[ Δq(τ) | q(t)=q, D(t,τ)=1 ].
+
+Plain meaning: μΔ describes the expected change from the current flow state.
+S² describes the spread of individual changes around that expectation. The
+mean was removed before calculating the variance.
+
+
+4. FIT THE BASIN-SPECIFIC VARIANCE LAW
+---------------------------------------
+
+The relation between starting flow and conditional variance was fitted as
+
+    S²(q,τ) = cτ × q^(mτ),       cτ > 0,
+
+or, equivalently,
+
+    log[S²(q,τ)] = log(cτ) + mτ × log(q).
+
+cτ controls the overall magnitude of uncertainty. mτ tells how rapidly the
+variance changes with starting flow. The primary estimate used τ = 1 day.
+
+    m = 0   variance is constant across flow states
+    m = 2   variance grows as q², so standard deviation is proportional to q
+
+Values above or below two indicate stronger or weaker flow dependence.
+
+The equivalent local Box-Cox parameter was
+
+    λ* = 1 - m/2.
+
+λ* = 0 corresponds to the logarithmic transformation. This is a local
+variance-stabilizing approximation for finite changes, not an exact
+transformation for every possible increment.
+
+The executable routine stores
+
+    D₂(q,τ) = S²(q,τ) / (2τ).
+
+At a fixed lead, dividing by 2τ changes the coefficient but not the exponent or
+the standardized departures. The paper reports the more readily interpreted S²
+relation.
+
+
+5. REMOVE THE CHANGING SCALE AND MEASURE EXTREMES
+--------------------------------------------------
+
+For each retained one-day change, the fitted mean was removed and the remainder
+was divided by the fitted conditional standard deviation:
+
+    z(i,t)
+      = [ Δq(i,t;1) - μ_hat_i(q(i,t)) ]
+        / sqrt[ c_hat_i × q(i,t)^(m_hat_i) ].
+
+The resulting values were centered and rescaled within each basin to have mean
+zero and standard deviation one.
+
+Plain meaning: z asks how unusual a change was after accounting for both the
+expected change and the uncertainty appropriate for its starting flow.
+
+Three-standard-deviation event frequencies were compared with the Gaussian
+expectation:
+
+    T(i)       = P_i(|z| > 3) / [2 Φ(-3)]
+    T_plus(i)  = P_i(z > 3)   / Φ(-3)
+    T_minus(i) = P_i(z < -3)  / Φ(-3)
+
+Φ is the standard-normal cumulative distribution function. A tail multiple of
+one agrees with a Gaussian model. A value of five means that the event occurred
+five times as often as the Gaussian model predicts.
+
+
+6. TEST A CLASSICAL RECESSION-THEORY EXPLANATION
+-------------------------------------------------
+
+A separate analysis used matched declining transitions. If recession follows
+
+    Δq = -k × q^b,
+
+then
+
+    Var(Δq | q) = Var(k | q) × q^(2b).
+
+If variability in recession rate k is independent of flow, the decline-only
+variance exponent should satisfy
+
+    m_d = 2b.
+
+The analysis tested that assumption directly with
+
+    Var(k | q) = d × q^γ,
+
+which implies
+
+    m_d = 2b + γ.
+
+γ = 0 denotes flow-independent recession-rate variance. γ < 0 means that
+recession-rate variability narrows as flow rises. The identity is exact for
+infinitesimally narrow flow bins; finite-bin fits can differ slightly. This
+theory test interprets the observed scaling and is not an input to prediction.
+
+
+7. CONSTRUCT AND TEST CONDITIONAL LOW-FLOW PREDICTIONS
+-------------------------------------------------------
+
+Prediction models used only records ending on 31 December 2015 for fitting.
+Flow was renormalized by each basin's positive pre-2016 median. Each lead was
+fitted directly rather than obtained by repeatedly applying a one-day model.
+Evaluation used 2016–2025 data.
+
+Noisy basin exponents were regularized toward m = 2:
+
+    m_tilde
+      = [ m_hat/s_m² + 2/(0.75)² ]
+        / [ 1/s_m² + 1/(0.75)² ],
+
+and then bounded to [0,4]. Here s_m is the estimated standard error of m_hat.
+
+For each eligible starting state, 101 deterministic endpoint members were
+generated:
+
+    q(i,t+h,j)
+      = max{ 0,
+             q(i,t)
+             + δ_hat(i,h,q_tilde)
+             + sqrt[ c_hat(i,h) × q_tilde^(m_tilde(i,h)) ]
+               × z(i,g,j) },
+
+    j = 1, ..., 101.
+
+q_tilde is starting flow clipped to the range supported by the training data,
+and z(i,g,j) is residual quantile j from pre-2016 starting-flow group g. The
+equation adds the expected change and a flow-dependent departure to current
+flow. The variance law sets the spread; the residual quantiles set the shape.
+
+Three residual models were compared:
+
+    1. one basin-wide Gaussian distribution;
+    2. Gaussian distributions in five starting-flow groups; and
+    3. empirical residual quantiles in the same five flow groups.
+
+The first comparison isolates remaining flow-state dependence. The second
+isolates non-Gaussian shape after group means and variances are matched. The
+comparisons have different references and are not additive.
+
+Complete endpoint distributions were evaluated with
+
+    CRPS(F,y) = E|X-y| - 0.5 × E|X-X'|,
+
+where X and X' are independent draws from the predicted distribution F.
+
+Probabilities of falling below fixed pre-2016 20th-, 10th-, and 5th-percentile
+flow thresholds were evaluated with
+
+    BS = (1/N) × Σ from n=1 to N of (p_n - y_n)².
+
+Lower scores are better. Improvement was measured as
+
+    Gain = Score(reference) - Score(structured).
+
+Positive gain favors the structured model; percentage reductions divide the
+gain by the corresponding reference score.
+
+Every prediction result conditions on observed continuation of screened dry
+conditions through the endpoint. The method predicts the endpoint distribution
+under that condition; it does not forecast whether the dry spell continues.

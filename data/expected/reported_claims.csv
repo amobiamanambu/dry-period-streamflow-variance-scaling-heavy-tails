@@ -1,0 +1,82 @@
+claim_id,expected,tolerance,displayed_value,description
+source_gages,9067,0,"9,067",Source GAGES-II gages in the conterminous United States
+accepted_basins,5227,0,"5,227",Basins passing the accepted quality screen
+estimable_basins,3727,0,"3,727",Basins with an estimable one-day variance exponent
+primary_transitions,9199635,0,"9.20 million",Primary-screen one-day transitions in estimable basins
+m_median,1.8797752833837835,1e-10,"1.880",Median one-day conditional-variance exponent
+m_q25,1.4645661859930614,1e-10,"1.465",First quartile of the one-day exponent
+m_q75,2.3690939689864825,1e-10,"2.369",Third quartile of the one-day exponent
+m_median_r2,0.8475544778685719,1e-10,"0.848",Median power-law coefficient of determination
+m_random_effects_center,1.9497130792493553,1e-10,"1.950",Random-effects population center
+m_prediction_low,0.7802666448778619,1e-10,"0.780",Lower random-effects prediction limit
+m_prediction_high,3.1191595136208488,1e-10,"3.119",Upper random-effects prediction limit
+m_i2_percent,96.14571363330914,1e-9,"96.1%",Random-effects heterogeneity
+tail_fraction_median,0.013582342954159592,1e-12,"0.01358",Median two-sided three-standard-deviation frequency
+tail_multiple_median,5.030877383293292,1e-10,"5.03",Median tail frequency relative to the Gaussian reference
+excess_kurtosis_median,55.447164343919006,1e-9,"55.45",Median standardized excess kurtosis
+positive_tail_multiple_median,6.142592824957865,1e-10,"6.14",Median positive-tail multiple of the one-sided Gaussian reference
+negative_tail_multiple_median,3.079524365916521,1e-10,"3.08",Median negative-tail multiple of the one-sided Gaussian reference
+theory_pair_basins,2033,0,"2,033",Basins supporting the matched recession-theory comparison
+decline_m_median,2.2483936306144843,1e-10,"2.248",Median matched decline-only variance exponent
+two_b_median,2.4607780922482423,1e-10,"2.461",Median classical random-rate prediction
+decline_minus_two_b_median,-0.19388627026527772,1e-10,"−0.194",Median matched theory offset
+gamma_median,-0.3208985933551405,1e-10,"−0.321",Median direct exponent of recession-rate variance
+gamma_ci_below_zero_fraction,0.7291151754819575,1e-10,"72.9%",Fraction of adequate water-year intervals below zero
+negative_within_share_median_paired,0.6824689478150646,1e-10,"68.2%",Median negative within-sign variance share in matched basins
+state_gaussian_crps_gain_1d,0.2106821112137215,1e-10,"21.1%",One-day gain from flow-state residual moments relative to a global Gaussian
+state_gaussian_crps_gain_2d,0.1099926001755299,1e-10,"11.0%",Two-day gain from flow-state residual moments relative to a global Gaussian
+state_gaussian_crps_gain_3d,0.1232689893593884,1e-10,"12.3%",Three-day gain from flow-state residual moments relative to a global Gaussian
+empirical_shape_crps_gain_1d,0.3163519185246355,1e-10,"31.6%",One-day gain from empirical residual shape relative to a matched flow-state Gaussian
+empirical_shape_crps_gain_2d,0.3059837202393264,1e-10,"30.6%",Two-day empirical-shape gain
+empirical_shape_crps_gain_3d,0.2073236002927027,1e-10,"20.7%",Three-day empirical-shape gain
+empirical_shape_crps_gain_5d,0.1884302627550624,1e-10,"18.8%",Five-day empirical-shape gain
+empirical_shape_crps_gain_7d,0.1346695055059071,1e-10,"13.5%",Seven-day empirical-shape gain
+lambda_pacific_northwest_n,409,0,"409",Pacific Northwest basins contributing to the regional lambda-star summary
+lambda_pacific_northwest_median,-0.2107275199297131,1e-10,"−0.211",Pacific Northwest median lambda-star
+lambda_texas_gulf_n,244,0,"244",Texas-Gulf basins contributing to the regional lambda-star summary
+lambda_texas_gulf_median,0.1924849702967723,1e-10,"0.192",Texas-Gulf median lambda-star
+gamma_pacific_northwest_n,237,0,"237",Pacific Northwest basins contributing to the regional gamma summary
+gamma_pacific_northwest_median,-0.7005442556800645,1e-10,"−0.701",Pacific Northwest median recession-rate variance exponent
+gamma_texas_gulf_n,188,0,"188",Texas-Gulf basins contributing to the regional gamma summary
+gamma_texas_gulf_median,-0.12813593684777264,1e-10,"−0.128",Texas-Gulf median recession-rate variance exponent
+negative_share_south_atlantic_gulf_n,374,0,"374",South Atlantic-Gulf basins contributing to the negative within-sign share
+negative_share_south_atlantic_gulf_median,0.9109741361516941,1e-10,"91.1%",South Atlantic-Gulf median negative within-sign variance share
+negative_share_pacific_northwest_n,237,0,"237",Pacific Northwest basins contributing to the negative within-sign share
+negative_share_pacific_northwest_median,0.383197357867238,1e-10,"38.3%",Pacific Northwest median negative within-sign variance share
+regional_positive_tail_median_min,4.895132343765981,1e-10,"4.90",Minimum HUC2 median positive-tail multiple
+regional_positive_tail_median_max,9.173170419989395,1e-10,"9.17",Maximum HUC2 median positive-tail multiple
+regional_negative_tail_median_min,1.9890741742238554,1e-10,"1.99",Minimum HUC2 median negative-tail multiple
+regional_negative_tail_median_max,5.1359317830421425,1e-10,"5.14",Maximum HUC2 median negative-tail multiple
+regional_all_tail_medians_above_one,1,0,"true",All HUC2 median signed-tail frequencies exceed the Gaussian reference
+prediction_california_n,223,0,"223",California basins in the three-day regional prediction comparison
+prediction_california_median_percent,11.037311440965883,1e-10,"11.0%",California median three-day empirical-shape CRPS gain
+prediction_upper_colorado_n,68,0,"68",Upper Colorado basins in the three-day regional prediction comparison
+prediction_upper_colorado_median_percent,8.405237191208847,1e-10,"8.4%",Upper Colorado median three-day empirical-shape CRPS gain
+prediction_south_atlantic_gulf_n,371,0,"371",South Atlantic-Gulf basins in the three-day regional prediction comparison
+prediction_south_atlantic_gulf_median_percent,1.236816101264858,1e-10,"1.2%",South Atlantic-Gulf median three-day empirical-shape CRPS gain
+prediction_ohio_n,34,0,"34",Ohio basins in the three-day regional prediction comparison
+prediction_ohio_median_percent,-0.5727661935605548,1e-10,"−0.6%",Ohio median three-day empirical-shape CRPS gain
+state_spatial_supported_1d,1,0,"supported",Spatial-hierarchical support for the one-day flow-state CRPS contrast
+state_spatial_supported_2d,1,0,"supported",Spatial-hierarchical support for the two-day flow-state CRPS contrast
+state_spatial_supported_3d,1,0,"supported",Spatial-hierarchical support for the three-day flow-state CRPS contrast
+state_spatial_supported_5d,0,0,"not supported",Spatial-hierarchical support decision for the five-day flow-state CRPS contrast
+state_spatial_supported_7d,0,0,"not supported",Spatial-hierarchical support decision for the seven-day flow-state CRPS contrast
+state_spatial_supported_10d,1,0,"supported",Spatial-hierarchical support for the isolated ten-day flow-state CRPS contrast after the uninterrupted sequence ended
+state_water_year_supported_1d,1,0,"supported",Water-year-block support for the one-day flow-state CRPS contrast
+state_water_year_supported_2d,1,0,"supported",Water-year-block support for the two-day flow-state CRPS contrast
+state_water_year_supported_3d,1,0,"supported",Water-year-block support for the three-day flow-state CRPS contrast
+state_water_year_supported_5d,0,0,"not supported",Water-year-block support decision for the five-day flow-state CRPS contrast
+state_water_year_supported_7d,0,0,"not supported",Water-year-block support decision for the seven-day flow-state CRPS contrast
+state_water_year_supported_10d,1,0,"supported",Water-year-block support for the isolated ten-day flow-state CRPS contrast after the uninterrupted sequence ended
+empirical_spatial_supported_1d,1,0,"supported",Spatial-hierarchical support for the one-day empirical-shape CRPS contrast
+empirical_spatial_supported_2d,1,0,"supported",Spatial-hierarchical support for the two-day empirical-shape CRPS contrast
+empirical_spatial_supported_3d,1,0,"supported",Spatial-hierarchical support for the three-day empirical-shape CRPS contrast
+empirical_spatial_supported_5d,1,0,"supported",Spatial-hierarchical support for the five-day empirical-shape CRPS contrast
+empirical_spatial_supported_7d,1,0,"supported",Spatial-hierarchical support for the seven-day empirical-shape CRPS contrast
+empirical_spatial_supported_10d,0,0,"not supported",Spatial-hierarchical support decision for the ten-day empirical-shape CRPS contrast
+empirical_water_year_supported_1d,1,0,"supported",Water-year-block support for the one-day empirical-shape CRPS contrast
+empirical_water_year_supported_2d,1,0,"supported",Water-year-block support for the two-day empirical-shape CRPS contrast
+empirical_water_year_supported_3d,1,0,"supported",Water-year-block support for the three-day empirical-shape CRPS contrast
+empirical_water_year_supported_5d,1,0,"supported",Water-year-block support for the five-day empirical-shape CRPS contrast
+empirical_water_year_supported_7d,1,0,"supported",Water-year-block support for the seven-day empirical-shape CRPS contrast
+empirical_water_year_supported_10d,0,0,"not supported",Water-year-block support decision for the ten-day empirical-shape CRPS contrast

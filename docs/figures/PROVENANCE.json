@@ -1,0 +1,41 @@
+{
+  "environment_scope": "The versions below describe the maintainer environment that rendered the committed PNG previews. The tested numerical release runtime is Python 3.11 as pinned in environment.yml and continuous integration.",
+  "generation_environment": {
+    "matplotlib": "3.11.1",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "python": "3.12.14",
+    "scipy": "1.16.1"
+  },
+  "generator": "maintainer/refresh_previews.py",
+  "preview_sha256": {
+    "docs/figures/01_real_gage_estimator_check.png": "a710edd123f46e5f4b1af1d3102c28f350f8eb44fbd6371abc3b7114ad88b706",
+    "docs/figures/02_continental_result_audit.png": "ae1638a1b4a35f617704637349cee206c82053a7843d5d705ea9a8cf7458390a"
+  },
+  "purpose": "Diagnostic provenance previews; not manuscript artwork.",
+  "source_sha256": {
+    ".github/workflows/ci.yml": "dee7c3a50177bf57e4055bd95ca9f93fb085fa9f73c880497ba6950c3b453ba6",
+    "config/full_study.json": "070b18bcc61eec839e9104e54494f2f2c5838f4f62ae42483c95f6c5fcf6ffa4",
+    "data/derived/basin_distribution.csv.gz": "580ddb08d88a1e685c28ffd5703bb2a8de8edc9a26ad168750747d9d93618f7b",
+    "data/derived/basin_place_metrics.csv.gz": "6d9410dd54785ed9cd3eef81dabed207f55497fd37f09f20897fa0523da4ee65",
+    "data/derived/basin_prediction_q10.csv.gz": "8da1a1a7053efb49debcc68c3cdca6cedbc042dbc5a0086444029c92c9e4a3cc",
+    "data/derived/basin_sample.csv.gz": "ff32bb6aebfc8ec8620b2b167a264ce3e6a9116c5d8ab4dbe19c466849f68496",
+    "data/derived/basin_scaling.csv.gz": "fc769d20dc6c19ef411ad74778da833885291f25df437eceffd4db1743297820",
+    "data/derived/basin_signed_tails.csv.gz": "e91913aa9bc5f3aab4d56264ae3d585af14149c86456dcc0fb89d8997111eae0",
+    "data/derived/basin_theory_bridge.csv.gz": "6f4c1115ed02fc4b2eff578839ad6c40f892fc1e48c48679d04c3d3f78535537",
+    "data/derived/prediction_skill_summary.csv": "2b814d77a8752711be7030ab76a57ff2dac8039ca2ff49e9c3982adbafddb735",
+    "data/derived/prediction_water_year_summary.csv": "133b6b3c2002789c6d0f269ed3ad021cfa9b242463170af2b2f7063925834c80",
+    "data/example/example_transitions.csv.gz": "84f9a66ece1e32cc3d5eeb26b65d9f8215b17aefc37f61805f9a054ba1ba5974",
+    "data/example/gage_metadata.csv": "71446ad0c009d1ae91224e4b76df81666c7d28f1137d5171703685c750066cca",
+    "data/expected/reported_claims.csv": "867e85dc5192e545595a92debaffec005361583be5ee036ccbd7e6b85a25056d",
+    "environment.yml": "f7da1e4b680f53b2c7cc2fd6d272394d699130ddce4e624d22ca86f36807744c",
+    "maintainer/refresh_previews.py": "d6679bc04cdc3000d7aee558c0053f4105af261810da218bab26439c406d5dce",
+    "reproducibility/core.py": "8120e8b9e1f2e7934808986acbb61e6725b80667d160f296cb704b403a7f5202",
+    "reproducibility/example_selection.py": "8dd7ee81e4a3297f24f3f0ed37e7e1bf4db915b943658a4f3e1db19b784b26d0",
+    "reproducibility/make_provenance_figures.py": "1d7eaa79830050259a8e4c6fc7ad7f3da8af580c1960cd779267477152ac4ccd",
+    "reproducibility/run_example.py": "efa526d4763366821f84786a56086351faab93031f7a10c775a37b13f89ae566",
+    "reproducibility/verify_reported_results.py": "8a8207d22c59359d1f3c23d883c1bf3b0c2774a732d2ed8b3dc6906d620fd9f1",
+    "requirements-core.txt": "4cbcf2fc0ac60645f3680aac59be02b347d3ba85cea5d1dcb604a9f1359f86bc",
+    "workflow/lib/stochastic.py": "e23234058fb60078a62f70da4b240b6b2a5009dcbdecb1e48fcc4f66ca719b58"
+  }
+}

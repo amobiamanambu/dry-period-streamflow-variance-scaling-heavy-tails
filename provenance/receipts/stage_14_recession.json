@@ -1,0 +1,30 @@
+{
+  "code_sha256": {
+    "scripts/14_run_continental_recession.py": "43738a0a11830b97f032755d192c118e03beb865d41443e83ff0aab9f7dd2d35",
+    "scripts/lib/analysis.py": "677851434f6ed4a4d5ccb05d1b5e7eb2a7b4fabbd4be7713730649b0f4380fbb",
+    "scripts/lib/common.py": "249eb3e8c52b8dc41f2ee7af5c5299404ba6a9498aea0350c2f9659aa8d6a1ef",
+    "scripts/lib/hydrology.py": "0db73d0328ee04daae62e4727fdac14f0b69214b4e79356cab8c216e1c70c0c6",
+    "scripts/lib/statistics.py": "c25e896c9b06886a5b49fabc55035b34158ada11002b4d8933e0207ab0d5da8a",
+    "scripts/lib/stochastic.py": "e23234058fb60078a62f70da4b240b6b2a5009dcbdecb1e48fcc4f66ca719b58"
+  },
+  "completed_utc": "2026-08-15T06:52:51+00:00",
+  "config": "scripts/config.json",
+  "config_sha256": "8b70ce641aafe9486980d5deb4fab68c371f9cff166e9a34e644ba4e2367f603",
+  "metrics": {
+    "basins": 5227,
+    "finite_time_stochastic_screen_pass": 190,
+    "forcing_screen_methods": 8,
+    "strict_diagnostic_complete": 3727,
+    "variance_exponent_available": 3727
+  },
+  "outputs": [
+    "continental_run/14_recession/recession_basin_method_summary.csv",
+    "continental_run/14_recession/recession_failures.csv",
+    "continental_run/14_recession/by_basin_summary",
+    "continental_run/14_recession/by_basin_bins"
+  ],
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "python": "3.11.13",
+  "stage": 14,
+  "stage_name": "14_recession"
+}

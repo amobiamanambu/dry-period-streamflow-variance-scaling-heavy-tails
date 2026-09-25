@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software or its derived data products, please cite the associated article and archived software release."
+title: "Dry-Period Streamflow Variance Scaling and Heavy Tails Improve Conditional Low-Flow Prediction"
+type: software
+version: 0.1.0
+repository-code: "https://github.com/amobiamanambu/dry-period-streamflow-variance-scaling-heavy-tails"
+authors:
+  - family-names: Amanambu
+    given-names: Amobichukwu C.
+    affiliation: "Department of Geography and the Environment, The University of Alabama"
+  - family-names: Alam
+    given-names: Shahab
+    affiliation: "Department of Civil Engineering and Construction Management, University of West Florida"
+keywords:
+  - streamflow recession
+  - conditional variance
+  - heavy tails
+  - low flow
+  - reproducibility

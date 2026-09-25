@@ -1,0 +1,35 @@
+{
+  "code_sha256": {
+    "scripts/17_detect_temporal_change.py": "4ad0e127a0ed2a161753fc8cb2320ae0fbaaea923875ce94b1b74711288ab1a0",
+    "scripts/lib/analysis.py": "677851434f6ed4a4d5ccb05d1b5e7eb2a7b4fabbd4be7713730649b0f4380fbb",
+    "scripts/lib/common.py": "07f716e70ed47568294188e5fb307745403f6dc335ea81d8ccb4ccfeb20c3369",
+    "scripts/lib/hydrology.py": "0db73d0328ee04daae62e4727fdac14f0b69214b4e79356cab8c216e1c70c0c6",
+    "scripts/lib/statistics.py": "c25e896c9b06886a5b49fabc55035b34158ada11002b4d8933e0207ab0d5da8a",
+    "scripts/lib/stochastic.py": "e23234058fb60078a62f70da4b240b6b2a5009dcbdecb1e48fcc4f66ca719b58"
+  },
+  "completed_utc": "2026-08-15T13:48:28+00:00",
+  "config": "scripts/config.json",
+  "config_sha256": "58eeea17dfeeccfe5e0166deb0f1dc7b5dbc62ff41fcb41c4c5bdc78636a1a0a",
+  "metrics": {
+    "basins_analyzed": 3727,
+    "basins_requested": 5227,
+    "distribution_collapse_supported": false,
+    "excluded": 1500,
+    "measurement_robust": true,
+    "non_gaussian_supported": true
+  },
+  "outputs": [
+    "continental_run/17_distribution_tests/distribution_basin_diagnostics.csv",
+    "continental_run/17_distribution_tests/distribution_flow_group_diagnostics.csv.gz",
+    "continental_run/17_distribution_tests/distribution_population_summary.csv",
+    "continental_run/17_distribution_tests/distribution_exclusions_and_failures.csv",
+    "continental_run/17_distribution_tests/DISTRIBUTION_DECISION.json",
+    "continental_run/17_distribution_tests/DISTRIBUTION_DECISION.md",
+    "continental_run/17_distribution_tests/by_basin_summary",
+    "continental_run/17_distribution_tests/by_basin_flow_groups"
+  ],
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "python": "3.11.13",
+  "stage": 17,
+  "stage_name": "17_distribution_tests"
+}

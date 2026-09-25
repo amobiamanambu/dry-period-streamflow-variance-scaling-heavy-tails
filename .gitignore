@@ -1,0 +1,16 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+build/
+dist/
+*.egg-info/
+outputs/
+workspace/
+data/raw/
+data/external/
+*.docx
+*.pdf

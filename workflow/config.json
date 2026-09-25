@@ -1,0 +1,153 @@
+{
+  "project": {
+    "name": "conus_dry_state_streamflow_scaling_and_lowflow_uncertainty",
+    "start_date": "1980-01-01",
+    "end_date": "2025-12-31",
+    "random_seed": 20260812,
+    "conus_only": true
+  },
+  "inputs": {
+    "basin_inventory": "data/external/basin_inventory.csv",
+    "basin_polygons": "data/external/gagesii_basins/GAGE_II_Basins.shp",
+    "precipitation_csv": "data/external/basin_precipitation.csv",
+    "pet_csv": "data/external/basin_pet.csv",
+    "discharge_directory": "data/external/usgs_daily/raw_rdb_gz",
+    "discharge_manifest": "data/external/usgs_daily/manifest.csv",
+    "discharge_qc": "data/external/discharge_qc.csv",
+    "gagesii_attributes_zip": "data/external/gagesii_attributes.zip"
+  },
+  "outputs": {
+    "root": "workspace/full_run",
+    "database": "workspace/full_run/data/continental_daily.sqlite"
+  },
+  "gridmet": {
+    "base_url": "https://www.northwestknowledge.net/metdata/data",
+    "variables": {
+      "tmmn": "tmmn_{year}.nc",
+      "tmmx": "tmmx_{year}.nc"
+    },
+    "years": [1980, 2025],
+    "download_retries": 4,
+    "download_timeout_seconds": 180,
+    "chunk_days": 16,
+    "minimum_valid_weight_fraction": 0.8,
+    "small_basin_fallback": "all_touched",
+    "minimum_center_cells_for_primary_analysis": 2
+  },
+  "data_qc": {
+    "accepted_tiers": ["TIER1_HIGH_QUALITY", "TIER2_ACCEPTABLE_QUALITY"],
+    "primary_tier": "TIER1_HIGH_QUALITY",
+    "minimum_joint_days": 3650,
+    "minimum_joint_fraction": 0.8,
+    "maximum_negative_q_fraction": 0.0,
+    "allow_negative_pet": false,
+    "allow_negative_precipitation": false
+  },
+  "snow_proxy": {
+    "snow_temperature_c": -0.4,
+    "rain_temperature_c": 2.4,
+    "melt_temperature_c": 0.0,
+    "degree_day_factor_mm_c_day": 3.0,
+    "minimum_snow_storage_mm": 1.0,
+    "sensitivity_snow_temperature_c": [-1.0, -0.4, 0.0],
+    "sensitivity_rain_temperature_c": [1.0, 2.4, 3.0],
+    "sensitivity_degree_day_factor": [2.0, 3.0, 5.0]
+  },
+  "transition_definitions": {
+    "lags_days": [1, 2, 3, 7, 14, 30, 60, 90],
+    "recession_lags_days": [1, 2, 3],
+    "precipitation_thresholds_mm_day": [0.1, 1.0],
+    "antecedent_windows_days": [1, 3, 5],
+    "minimum_q_mm_day": 1e-06,
+    "minimum_contiguous_days": 5
+  },
+  "irreversibility": {
+    "state_bins": [8, 12, 16],
+    "primary_state_bins": 12,
+    "minimum_transition_count": 500,
+    "minimum_expected_cell_count": 5,
+    "iaaft_surrogates_validation": 199,
+    "iaaft_surrogates_continental": 19,
+    "iaaft_iterations": 60,
+    "ordinal_dimension": 3,
+    "ordinal_delay_days": 1,
+    "pseudocount": 0.5
+  },
+  "recession": {
+    "state_bins": 20,
+    "minimum_bin_count": 50,
+    "minimum_valid_bins_for_fit": 6,
+    "bootstrap_replicates_validation": 399,
+    "bootstrap_replicates_continental": 199,
+    "markov_tolerance": 0.2,
+    "km4_gaussian_deviation_warning": 0.25
+  },
+  "scaling_test": {
+    "target_exponent": 2.0,
+    "near_target_tolerance": 0.5,
+    "minimum_estimable_fraction": 0.6,
+    "minimum_subgroup_estimable_fraction": 0.5,
+    "minimum_positive_ci_fraction": 0.9,
+    "minimum_median_power_r2": 0.7,
+    "minimum_cross_lag_spearman": 0.8,
+    "universal_ci_inclusion_fraction": 0.8
+  },
+  "distribution_test": {
+    "minimum_transitions": 1000,
+    "flow_groups": 5,
+    "normal_tail_z": 3.0,
+    "maximum_median_pairwise_ks_for_collapse": 0.25,
+    "maximum_median_abs_group_mean_for_collapse": 0.25,
+    "maximum_median_abs_group_sd_minus_one_for_collapse": 0.25,
+    "maximum_median_exponent_change_without_estimated_values": 0.2,
+    "minimum_exponent_rank_correlation_without_estimated_values": 0.8,
+    "minimum_paired_nonestimated_fraction": 0.5,
+    "minimum_student_t_aic_win_fraction": 0.5,
+    "tail_sensitivity_minimum_transitions": 500,
+    "tail_sensitivity_low_flow_quantile": 0.01,
+    "tail_sensitivity_exclude_zero_increments": true,
+    "minimum_tail_sensitivity_basin_fraction": 0.5,
+    "minimum_tail_frequency_multiple_of_gaussian": 2.0
+  },
+  "validation": {
+    "sample_size": 48,
+    "stratify_columns": ["AGGECOREGION", "CLASS", "snow_fraction", "BFI_AVE", "aridity", "log_area"],
+    "manual_inspection_size": 8
+  },
+  "predictability_test": {
+    "low_flow_quantiles": [0.2, 0.1, 0.05],
+    "primary_low_flow_quantile": 0.1,
+    "lead_days": [1, 2, 3, 5, 7, 10, 14, 21, 30],
+    "spatial_group_column": "AGGECOREGION",
+    "ensemble_members": 101,
+    "state_bins": 10,
+    "residual_flow_groups": 5,
+    "minimum_bin_count": 30,
+    "minimum_valid_bins_for_fit": 6,
+    "variance_exponent_prior_mean": 2.0,
+    "variance_exponent_prior_sd": 0.75,
+    "variance_exponent_bounds": [0.0, 4.0],
+    "minimum_training_transitions": 500,
+    "minimum_test_transitions": 100,
+    "minimum_events_per_basin": 10,
+    "minimum_nonevents_per_basin": 10,
+    "training_end_date": "2015-12-31",
+    "evaluation_start_date": "2016-01-01",
+    "paired_bootstrap_replicates": 1000,
+    "water_year_block_bootstrap_replicates": 1000,
+    "bootstrap_chunk_size": 128,
+    "minimum_evaluation_water_years_per_basin": 3,
+    "nominal_interval_coverage": 0.9,
+    "probability_clip": 1e-06,
+    "recession_logistic_activation_lead_days": 7,
+    "recession_logistic_blend_weight": 0.5,
+    "recession_logistic_regularization_c": 1.0,
+    "recession_logistic_max_iterations": 1000,
+    "require_positive_low_flow_threshold": true,
+    "minimum_basins_per_lead_for_claim": 500,
+    "minimum_spatial_groups_per_lead_for_claim": 5,
+    "minimum_scientifically_meaningful_horizon_days": 7,
+    "minimum_leads_with_non_gaussian_skill": 2,
+    "severity_contrast_reference_model": "qbin_probability"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "completed_utc": "2026-08-12T23:32:48+00:00",
+  "config": "scripts/config.json",
+  "config_sha256": "3f3cc88625dc8fc2f6e253f2bf1814ae447064eb700c7c3fa2bd05676b97b15f",
+  "metrics": {
+    "audited_basins": 5627,
+    "excluded": 400,
+    "primary_eligible": 5227
+  },
+  "outputs": [
+    "continental_run/08_matched_qc/matched_data_qc.csv",
+    "continental_run/08_matched_qc/eligible_basins.csv"
+  ],
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "python": "3.11.13",
+  "stage": 8,
+  "stage_name": "08_matched_qc"
+}

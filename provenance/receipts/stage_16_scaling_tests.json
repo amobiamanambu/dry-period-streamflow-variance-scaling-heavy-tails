@@ -1,0 +1,37 @@
+{
+  "code_sha256": {
+    "scripts/16_test_hypotheses.py": "924b59eb63449aa9f17a26e7afcd25e641c56efe06e330d8bdc809c7e9a99d18",
+    "scripts/lib/analysis.py": "677851434f6ed4a4d5ccb05d1b5e7eb2a7b4fabbd4be7713730649b0f4380fbb",
+    "scripts/lib/common.py": "249eb3e8c52b8dc41f2ee7af5c5299404ba6a9498aea0350c2f9659aa8d6a1ef",
+    "scripts/lib/hydrology.py": "0db73d0328ee04daae62e4727fdac14f0b69214b4e79356cab8c216e1c70c0c6",
+    "scripts/lib/statistics.py": "c25e896c9b06886a5b49fabc55035b34158ada11002b4d8933e0207ab0d5da8a",
+    "scripts/lib/stochastic.py": "e23234058fb60078a62f70da4b240b6b2a5009dcbdecb1e48fcc4f66ca719b58"
+  },
+  "completed_utc": "2026-08-15T06:52:55+00:00",
+  "config": "scripts/config.json",
+  "config_sha256": "8b70ce641aafe9486980d5deb4fab68c371f9cff166e9a34e644ba4e2367f603",
+  "metrics": {
+    "basins": 5227,
+    "daily_gaussian_diffusion_supported": false,
+    "estimable": 3727,
+    "finite_time_stochastic_screen_majority_supported": false,
+    "near_multiplicative_supported": true,
+    "universal_exact_beta2_supported": false
+  },
+  "outputs": [
+    "continental_run/16_scaling_tests/scaling_population_summary.csv",
+    "continental_run/16_scaling_tests/scaling_random_effects_meta_analysis.csv",
+    "continental_run/16_scaling_tests/scaling_tau_stability.csv",
+    "continental_run/16_scaling_tests/forcing_screen_sensitivity_summary.csv",
+    "continental_run/16_scaling_tests/finite_time_diagnostic_summary.csv",
+    "continental_run/16_scaling_tests/secondary_driver_spearman.csv",
+    "continental_run/16_scaling_tests/secondary_driver_robust_ols.csv",
+    "continental_run/16_scaling_tests/secondary_driver_spatial_cv.csv",
+    "continental_run/16_scaling_tests/SCALING_DECISION.json",
+    "continental_run/16_scaling_tests/SCALING_DECISION.md"
+  ],
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "python": "3.11.13",
+  "stage": 16,
+  "stage_name": "16_scaling_tests"
+}

@@ -1,0 +1,16 @@
+{
+  "completed_utc": "2026-08-13T10:50:29+00:00",
+  "config": "scripts/config.json",
+  "config_sha256": "3f3cc88625dc8fc2f6e253f2bf1814ae447064eb700c7c3fa2bd05676b97b15f",
+  "metrics": {
+    "basins": 5227
+  },
+  "outputs": [
+    "continental_run/10_transitions/transition_inventory.csv",
+    "continental_run/10_transitions/daily"
+  ],
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "python": "3.11.13",
+  "stage": 10,
+  "stage_name": "10_transitions"
+}
